@@ -12,6 +12,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     alignItems: 'center',
   },
+  textInput: {
+    width: '100%',
+    textAlign: 'center',
+  },
 });
 
 const LoginScreen = () => {
@@ -28,24 +32,21 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View>
-        <TextInput
-          placeholder="Username"
-          onChangeText={(text) => setUsernameText(text)}
-          autoCapitalize="none"
-          value={usernameText}
-        />
-      </View>
+      <TextInput
+        placeholder="Username"
+        onChangeText={(text) => setUsernameText(text)}
+        autoCapitalize="none"
+        value={usernameText}
+      />
       <View style={{ paddingVertical: 5 }} />
-      <View>
-        <TextInput
-          placeholder="Password"
-          onChangeText={(text) => setPasswordText(text)}
-          secureTextEntry={true}
-          autoCapitalize="none"
-          value={passwordText}
-        />
-      </View>
+      <TextInput
+        placeholder="Password"
+        onChangeText={(text) => setPasswordText(text)}
+        secureTextEntry={true}
+        autoCapitalize="none"
+        value={passwordText}
+        style={styles.textInput}
+      />
       <View style={{ paddingVertical: 10 }} />
       <Button
         title="Submit"

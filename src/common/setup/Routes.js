@@ -11,7 +11,6 @@ const Stack = createNativeStackNavigator();
 
 const Routes = () => {
   const { authStore } = useStore().rootStore;
-  console.log('isLoading', authStore.isLoading);
 
   return (
     <NavigationContainer>
