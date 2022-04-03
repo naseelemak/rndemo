@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
-import Loader from '../../../common/ui/Loader/Loader';
+import Loader from 'common/ui/Loader/Loader';
 import MovieCard from '../MovieCard';
 
 const styles = StyleSheet.create({

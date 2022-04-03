@@ -1,6 +1,6 @@
 import React from 'react';
-import AuthStore from 'context/stores/authStore';
-import MovieStore from '../../context/stores/movieStore';
+import AuthStore from './authStore';
+import MovieStore from './movieStore';
 
 class RootStore {
   constructor() {

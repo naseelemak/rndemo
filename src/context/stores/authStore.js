@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { flow, makeAutoObservable } from 'mobx';
 import { makePersistable } from 'mobx-persist-store';
-import ApiService from '../../common/api';
+import ApiService from 'common/api';
 
 class AuthStore {
   isLoggedIn = false;

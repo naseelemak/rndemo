@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from 'screens/Login';
 import DashboardScreen from 'screens/Dashboard';
-import { useStore } from './rootStore';
+import { useStore } from 'context/stores/rootStore';
 import { observer } from 'mobx-react-lite';
 import StandardButton from 'common/ui/StandardButton';
 

@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
-import { useStore } from 'common/setup/rootStore';
+import { useStore } from 'context/stores/rootStore';
 
 // I know the instructions said no styles but I'm just putting a little here
 // to centralise the form. I hope that's fine!

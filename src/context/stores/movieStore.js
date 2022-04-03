@@ -1,6 +1,6 @@
 import { flow, makeAutoObservable } from 'mobx';
 import { mapRemoteMovieList } from 'context/mappers/movieMapper';
-import ApiService from '../../common/api/ApiService';
+import ApiService from 'common/api/ApiService';
 
 class MovieStore {
   movieList = [];

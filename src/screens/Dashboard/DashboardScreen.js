@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { useStore } from 'common/setup/rootStore';
+import { useStore } from 'context/stores/rootStore';
 import { observer } from 'mobx-react-lite';
 import MovieList from './MovieList/MovieList';
 
