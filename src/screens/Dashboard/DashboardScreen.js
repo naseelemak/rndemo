@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { useStore } from 'common/setup/rootStore';
 import { observer } from 'mobx-react-lite';
 import MovieList from './MovieList/MovieList';
@@ -14,14 +14,9 @@ const styles = StyleSheet.create({
 });
 
 const DashboardScreen = () => {
-  const { authStore, movieStore } = useStore().rootStore;
+  const { movieStore } = useStore().rootStore;
   const [isFirstPageLoaded, setIsFirstPageLoaded] = React.useState(false);
   const [, setCurrentPage] = React.useState(1);
-
-  const handleLogOut = () => {
-    console.log('Logging out');
-    authStore.onLogOut();
-  };
 
   const onRefresh = () => {
     movieStore.setIsLastPage(false);
@@ -48,12 +43,6 @@ const DashboardScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Button
-        title="Log Out"
-        onPress={handleLogOut}
-        disabled={authStore.isLoading}
-      />
-      <View style={{ paddingVertical: 10 }} />
       <MovieList
         movieData={movieStore.movieList}
         onRefresh={onRefresh}

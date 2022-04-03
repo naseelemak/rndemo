@@ -42,6 +42,9 @@ const callAxiosInner = async (options) => {
 const call = async (options) => {
   const axiosResult = await callAxiosInner({
     ...options,
+    headers: {
+      ...getCommonHeaders(),
+    },
   });
 
   console.log('axiosResult', axiosResult);

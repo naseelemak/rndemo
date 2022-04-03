@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { TouchableOpacity, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from 'screens/Login';
@@ -26,7 +27,16 @@ const Routes = () => {
           <Stack.Screen
             name="Dashboard"
             component={DashboardScreen}
-            options={{ name: 'Dashboard' }}
+            options={{
+              name: 'Dashboard',
+              headerRight: () => (
+                <TouchableOpacity onPress={() => authStore.onLogOut()}>
+                  <Text style={{ fontSize: 12, color: '#007AFF' }}>
+                    Log Out
+                  </Text>
+                </TouchableOpacity>
+              ),
+            }}
           />
         </Stack.Navigator>
       )}
