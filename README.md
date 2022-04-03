@@ -1,6 +1,6 @@
 # rndemo
 
-A no-frills, sorta lightweight app that keeps you focused on your main goal: finding movies with the word "car" in their titles.
+A no-frills, sorta lightweight app that keeps you focused on your main goal—finding movies with the word "car" in their titles.
 
 ## Main Features
 - Pseudo-authentication
