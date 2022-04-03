@@ -1,6 +1,6 @@
 export const mapRemoteMovieList = (remoteResponse) => {
   const mappedData = remoteResponse.map((item) => ({
-    id: item.imdbId,
+    id: item.imdbID,
     title: item.Title,
     year: item.Year,
     type: item.Type,
