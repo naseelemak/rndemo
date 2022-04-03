@@ -1,4 +1,6 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { flow, makeAutoObservable } from 'mobx';
+import { makePersistable } from 'mobx-persist-store';
 import ApiService from '../../common/api';
 
 class AuthStore {
@@ -8,6 +10,11 @@ class AuthStore {
   constructor() {
     makeAutoObservable(this, {
       onLogIn: flow,
+    });
+    makePersistable(this, {
+      name: 'AuthStore',
+      properties: ['isLoggedIn'],
+      storage: AsyncStorage,
     });
   }
 
