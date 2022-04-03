@@ -19,7 +19,7 @@ const Routes = () => {
           <Stack.Screen
             name="Login"
             component={LoginScreen}
-            options={{ name: 'Login' }}
+            options={{ title: 'Login' }}
           />
         </Stack.Navigator>
       ) : (
@@ -28,7 +28,7 @@ const Routes = () => {
             name="Dashboard"
             component={DashboardScreen}
             options={{
-              name: 'Dashboard',
+              title: 'Car Involved Movies',
               headerRight: () => (
                 <StandardButton
                   label="Log Out"

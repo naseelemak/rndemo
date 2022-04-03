@@ -1,20 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     borderRadius: 10,
     overflow: 'hidden',
-  },
-  movieCard: {
     paddingHorizontal: 15,
     paddingVertical: 15,
-    height: 130,
-    maxHeight: 130,
-    borderRadius: 10,
+    height: 580,
     backgroundColor: '#fff',
-    marginBottom: 12,
-
+    marginBottom: 15,
+  },
+  touchableOpacity: {
     // box shadows
     shadowColor: '#000',
     shadowOffset: {
@@ -24,18 +21,23 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
 
+    // necessary for android shadows
     elevation: 5,
     // -- box shadows
   },
   movieName: {
     marginTop: 5,
-    color: '#0366d6',
+    color: '#474747',
     fontSize: 22,
+    fontWeight: '600',
   },
-  movieDescription: {
+  movieYear: {
     marginTop: 5,
     fontSize: 14,
     color: '#808080',
+  },
+  moviePoster: {
+    flex: 1,
   },
 });
 
@@ -44,22 +46,28 @@ const MovieCard = ({ item }) => {
 
   return (
     <TouchableOpacity
-      style={styles.movieCard}
+      style={styles.touchableOpacity}
       onPress={() => {
         () => {};
       }}
     >
       <View style={styles.container}>
-        <Text style={styles.movieName} numberOfLines={1} ellipsizeMode="tail">
-          {title}
-        </Text>
-        <Text
-          style={styles.movieDescription}
-          numberOfLines={3}
-          ellipsizeMode="tail"
-        >
-          {year}
-        </Text>
+        <View>
+          <Text style={styles.movieName} numberOfLines={2} ellipsizeMode="tail">
+            {title}
+          </Text>
+          <Text style={styles.movieYear} ellipsizeMode="tail">
+            {year}
+          </Text>
+        </View>
+        <View style={{ paddingVertical: 5 }} />
+        <Image
+          style={styles.moviePoster}
+          source={{
+            uri: item.poster,
+          }}
+          resizeMode="contain"
+        />
       </View>
     </TouchableOpacity>
   );

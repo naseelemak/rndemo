@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingHorizontal: 15,
-    paddingVertical: 15,
+    paddingVertical: 10,
   },
   noMovies: {
     flex: 1,
@@ -43,26 +43,24 @@ const MovieList = ({
   onLoadMore,
   isLoading,
   isLoadingMore,
-}) => {
-  return (
-    <View style={styles.flatListContainer}>
-      <FlatList
-        contentContainerStyle={styles.contentContainer}
-        data={movieData}
-        renderItem={({ item }) => {
-          return renderItem(item);
-        }}
-        keyExtractor={(item) => item.id}
-        ListEmptyComponent={NoMovies}
-        onEndReached={onLoadMore}
-        onEndReachedThreshold={0.3}
-        ListFooterComponent={renderFooter(isLoadingMore)}
-        onRefresh={onRefresh}
-        refreshing={isLoading}
-        showsVerticalScrollIndicator={true}
-      />
-    </View>
-  );
-};
+}) => (
+  <View style={styles.flatListContainer}>
+    <FlatList
+      contentContainerStyle={styles.contentContainer}
+      data={movieData}
+      renderItem={({ item }) => {
+        return renderItem(item);
+      }}
+      keyExtractor={(item) => item.id}
+      ListEmptyComponent={NoMovies}
+      onEndReached={onLoadMore}
+      onEndReachedThreshold={0.3}
+      ListFooterComponent={renderFooter(isLoadingMore)}
+      onRefresh={onRefresh}
+      refreshing={isLoading}
+      showsVerticalScrollIndicator={true}
+    />
+  </View>
+);
 
 export default MovieList;
