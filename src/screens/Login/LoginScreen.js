@@ -15,6 +15,8 @@ const styles = StyleSheet.create({
   textInput: {
     width: '100%',
     textAlign: 'center',
+    borderRadius: 5,
+    backgroundColor: 'white',
   },
 });
 
@@ -37,6 +39,7 @@ const LoginScreen = () => {
         onChangeText={(text) => setUsernameText(text)}
         autoCapitalize="none"
         value={usernameText}
+        style={styles.textInput}
       />
       <View style={{ paddingVertical: 5 }} />
       <TextInput
