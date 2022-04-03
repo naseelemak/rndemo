@@ -1,6 +1,7 @@
-import { useNavigation } from '@react-navigation/native';
+import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { useStore } from 'common/setup/rootStore';
 
 // I know the instructions said no styles but I'm just putting a little here
 // to centralise the form. I hope that's fine!
@@ -14,14 +15,16 @@ const styles = StyleSheet.create({
 });
 
 const SignInScreen = () => {
+  const { authStore } = useStore().rootStore;
   const [usernameText, setUsernameText] = React.useState('');
   const [passwordText, setPasswordText] = React.useState('');
-  const navigation = useNavigation('Dashboard');
 
   const handleLogin = () => {
-    // TODO: implement this
     console.log('Logging in');
-    navigation.navigate('Dashboard');
+    authStore.onLogIn({
+      username: usernameText,
+      password: passwordText,
+    });
   };
 
   return (
@@ -30,6 +33,7 @@ const SignInScreen = () => {
         <TextInput
           placeholder="Username"
           onChangeText={(text) => setUsernameText(text)}
+          autoCapitalize="none"
           value={usernameText}
         />
       </View>
@@ -38,13 +42,20 @@ const SignInScreen = () => {
         <TextInput
           placeholder="Password"
           onChangeText={(text) => setPasswordText(text)}
+          autoCapitalize="none"
           value={passwordText}
         />
       </View>
       <View style={{ paddingVertical: 10 }} />
-      <Button title="Login" onPress={handleLogin} />
+      <Button
+        title="Login"
+        onPress={handleLogin}
+        disabled={authStore.isLoading}
+      />
     </View>
   );
 };
 
-export default SignInScreen;
+const SignInWrapped = observer(SignInScreen);
+
+export default SignInWrapped;
