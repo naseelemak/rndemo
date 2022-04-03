@@ -4,15 +4,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from 'screens/Login';
 import DashboardScreen from 'screens/Dashboard';
 import { useStore } from './rootStore';
-import { toJS } from 'mobx';
 import { observer } from 'mobx-react-lite';
 
 const Stack = createNativeStackNavigator();
 
 const Routes = () => {
   const { authStore } = useStore().rootStore;
-
-  console.log('rootStore', toJS(authStore.isLoggedIn));
 
   return (
     <NavigationContainer>

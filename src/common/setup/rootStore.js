@@ -1,10 +1,12 @@
 import React from 'react';
 import AuthStore from 'context/stores/authStore';
+import MovieStore from '../../context/stores/movieStore';
 
 class RootStore {
   constructor() {
     // Add additional domain stores here
     this.authStore = new AuthStore(this);
+    this.movieStore = new MovieStore(this);
   }
 }
 

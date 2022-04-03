@@ -40,7 +40,7 @@ class AuthStore {
 
       this.setIsLoggedIn(response);
     } catch (error) {
-      console.log('Error: ', error);
+      console.error(error);
     } finally {
       yield this.setIsLoading(false);
     }
@@ -58,7 +58,7 @@ class AuthStore {
 
       this.setIsLoggedIn(false);
     } catch (error) {
-      console.log('Error: ', error);
+      console.error(error);
     } finally {
       yield this.setIsLoading(false);
     }
