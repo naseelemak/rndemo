@@ -4,7 +4,7 @@ A no-frills, sorta lightweight app that keeps you focused on your main goal—fi
 
 ## Main Features
 - Pseudo-authentication
-- Persistant logins
+- Persistent logins
 - Infinite scrolling
 
 
