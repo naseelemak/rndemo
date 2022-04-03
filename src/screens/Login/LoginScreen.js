@@ -20,7 +20,6 @@ const LoginScreen = () => {
   const [passwordText, setPasswordText] = React.useState('');
 
   const handleLogIn = () => {
-    console.log('Logging in');
     authStore.onLogIn({
       username: usernameText,
       password: passwordText,

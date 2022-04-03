@@ -9,7 +9,6 @@ const API_KEY = '741fd8d3';
 const BASE_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&`;
 
 const simulateAuthentication = async (username, password) => {
-  console.log('authenticating');
   await sleep(1000);
   if (username === 'remark' && password === 'testtest') {
     return true;
@@ -46,8 +45,6 @@ const call = async (options) => {
       ...getCommonHeaders(),
     },
   });
-
-  console.log('axiosResult', axiosResult);
 
   return axiosResult.data;
 };
