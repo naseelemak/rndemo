@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const SignInScreen = () => {
+const LoginScreen = () => {
   const { authStore } = useStore().rootStore;
   const [usernameText, setUsernameText] = React.useState('');
   const [passwordText, setPasswordText] = React.useState('');
@@ -49,7 +49,7 @@ const SignInScreen = () => {
       </View>
       <View style={{ paddingVertical: 10 }} />
       <Button
-        title="Log In"
+        title="Submit"
         onPress={handleLogIn}
         disabled={authStore.isLoading}
       />
@@ -57,6 +57,6 @@ const SignInScreen = () => {
   );
 };
 
-const SignInWrapped = observer(SignInScreen);
+const LoginWrapped = observer(LoginScreen);
 
-export default SignInWrapped;
+export default LoginWrapped;

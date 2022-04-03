@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SignInScreen from 'screens/SignIn';
+import LoginScreen from 'screens/Login';
 import DashboardScreen from 'screens/Dashboard';
 import { useStore } from './rootStore';
 import { toJS } from 'mobx';
@@ -17,11 +17,11 @@ const Routes = () => {
   return (
     <NavigationContainer>
       {!authStore.isLoggedIn ? (
-        <Stack.Navigator initialRouteName="SignIn">
+        <Stack.Navigator initialRouteName="Login">
           <Stack.Screen
-            name="SignIn"
-            component={SignInScreen}
-            options={{ name: 'SignIn' }}
+            name="Login"
+            component={LoginScreen}
+            options={{ name: 'Login' }}
           />
         </Stack.Navigator>
       ) : (
