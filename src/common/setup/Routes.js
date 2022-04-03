@@ -11,6 +11,7 @@ const Stack = createNativeStackNavigator();
 
 const Routes = () => {
   const { authStore } = useStore().rootStore;
+  console.log('isLoading', authStore.isLoading);
 
   return (
     <NavigationContainer>
@@ -33,6 +34,7 @@ const Routes = () => {
                 <StandardButton
                   label="Log Out"
                   onPress={() => authStore.onLogOut()}
+                  isDisabled={authStore.isLoading}
                 />
               ),
             }}

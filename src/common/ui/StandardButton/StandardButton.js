@@ -1,5 +1,15 @@
 import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  label: {
+    fontSize: 14,
+    color: '#007AFF',
+  },
+  labelDisabled: {
+    color: '#808080',
+  },
+});
 
 const StandardButton = ({
   label,
@@ -14,7 +24,9 @@ const StandardButton = ({
       onPress={onPress}
       disabled={isDisabled}
     >
-      <Text style={textStyle || { fontSize: 14, color: '#007AFF' }}>
+      <Text
+        style={[styles.label, isDisabled && styles.labelDisabled, textStyle]}
+      >
         {label || ''}
       </Text>
     </TouchableOpacity>
