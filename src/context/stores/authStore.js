@@ -38,6 +38,24 @@ class AuthStore {
       yield this.setIsLoading(false);
     }
   }
+
+  *onLogOut() {
+    yield this.setIsLoading(true);
+    try {
+      const response = yield ApiService.simulateLogOut();
+      if (response === false) {
+        console.log(
+          "Something went wrong with log out on backend, but don't worry about interceptChange.",
+        );
+      }
+
+      this.setIsLoggedIn(false);
+    } catch (error) {
+      console.log('Error: ', error);
+    } finally {
+      yield this.setIsLoading(false);
+    }
+  }
 }
 
 export default AuthStore;

@@ -1,8 +1,36 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet, Button } from 'react-native';
+import { useStore } from 'common/setup/rootStore';
+import { observer } from 'mobx-react-lite';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 20,
+    paddingHorizontal: 10,
+    alignItems: 'center',
+  },
+});
 
 const DashboardScreen = () => {
-  return <View />;
+  const { authStore } = useStore().rootStore;
+
+  const handleLogOut = () => {
+    console.log('Logging in');
+    authStore.onLogOut();
+  };
+
+  return (
+    <View style={styles.container}>
+      <Button
+        title="Log Out"
+        onPress={handleLogOut}
+        disabled={authStore.isLoading}
+      />
+    </View>
+  );
 };
 
-export default DashboardScreen;
+const DashboardWrapped = observer(DashboardScreen);
+
+export default DashboardWrapped;

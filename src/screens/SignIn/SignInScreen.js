@@ -19,7 +19,7 @@ const SignInScreen = () => {
   const [usernameText, setUsernameText] = React.useState('');
   const [passwordText, setPasswordText] = React.useState('');
 
-  const handleLogin = () => {
+  const handleLogIn = () => {
     console.log('Logging in');
     authStore.onLogIn({
       username: usernameText,
@@ -42,14 +42,15 @@ const SignInScreen = () => {
         <TextInput
           placeholder="Password"
           onChangeText={(text) => setPasswordText(text)}
+          secureTextEntry={true}
           autoCapitalize="none"
           value={passwordText}
         />
       </View>
       <View style={{ paddingVertical: 10 }} />
       <Button
-        title="Login"
-        onPress={handleLogin}
+        title="Log In"
+        onPress={handleLogIn}
         disabled={authStore.isLoading}
       />
     </View>

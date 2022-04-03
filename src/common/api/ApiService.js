@@ -9,4 +9,9 @@ const simulateAuthentication = async (username, password) => {
   return false;
 };
 
-export default { simulateAuthentication };
+const simulateLogOut = async () => {
+  await sleep(1000);
+  return true;
+};
+
+export default { simulateAuthentication, simulateLogOut };
