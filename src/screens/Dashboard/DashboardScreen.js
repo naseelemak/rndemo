@@ -3,6 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import { useStore } from 'common/setup/rootStore';
 import { observer } from 'mobx-react-lite';
 import MovieList from './MovieList/MovieList';
+import StandardButton from '../../common/ui/StandardButton';
 
 const styles = StyleSheet.create({
   container: {
